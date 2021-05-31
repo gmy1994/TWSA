@@ -1,0 +1,20 @@
+netcdf TEMPLATE {
+dimensions:
+	south_north = 400 ;
+	west_east = 700 ;
+variables:
+	float XLAT(south_north, west_east) ;
+		XLAT:long_name = "latitude" ;
+		XLAT:units = "degree_north" ;
+		XLAT:standard_name = "latitude" ;
+	float XLONG(south_north, west_east) ;
+		XLONG:long_name = "longitude" ;
+		XLONG:units = "degree_east" ;
+		XLONG:standard_name = "longitude" ;
+    float TWSA(south_north, west_east) ;
+		TWSA:MemoryOrder = "XY" ;
+		TWSA:description = "GRACE terrestrial water storage anomaly " ;
+		TWSA:units = "cm" ;
+		TWSA:stagger = "-" ;
+data:
+}

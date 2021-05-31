@@ -1,0 +1,40 @@
+netcdf TEMPLATE {
+dimensions:
+	south_north = 400 ;
+	west_east = 700 ;
+	time = UNLIMITED ; // (1 currently)
+	bounds = 2 ;
+variables:
+	double lon(south_north, west_east) ;
+		lon:units = "degrees_east" ;
+		lon:long_name = "longitude" ;
+		lon:standard_name = "longitude" ;
+		lon:axis = "X" ;
+		lon:comment = "longitude value at each pixel" ;
+	double lat(south_north, west_east) ;
+		lat:units = "degrees_north" ;
+		lat:long_name = "latitude" ;
+		lat:standard_name = "latitude" ;
+		lat:axis = "Y" ;
+		lat:comment = "latitude value at each pixel" ;
+	double time(time) ;
+		time:units = "days since 2002-01-01T00:00:00" ;
+		time:long_name = "time" ;
+		time:standard_name = "time" ;
+		time:axis = "T" ;
+		time:calendar = "gregorian" ;
+		time:bounds = "time_bounds" ;
+	double lwe_thickness(time, south_north, west_east) ;
+		lwe_thickness:_FillValue = -99999. ;
+		lwe_thickness:units = "cm" ;
+		lwe_thickness:long_name = "Liquid_Water_Equivalent_Thickness" ;
+		lwe_thickness:standard_name = "Liquid_Water_Equivalent_Thickness" ;
+		lwe_thickness:coordinates = "time lat lon" ;
+		lwe_thickness:grid_mapping = "WGS 84" ;
+		lwe_thickness:comment = "none" ;
+	double time_bounds(time, bounds) ;
+		time_bounds:standard_name = "time bounds for each time value, i.e. the first day and last day included in the monthly solution" ;
+		time_bounds:units = "days since 2002-01-01T00:00:00" ;
+		time_bounds:comment = "time bounds for each time value, i.e., the first day and last day included in the monthly solution" ;
+data:
+}

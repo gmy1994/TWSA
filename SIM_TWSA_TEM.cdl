@@ -1,0 +1,77 @@
+netcdf TEMPLATE {
+dimensions:
+	south_north = 400 ;
+	west_east = 700 ;
+	soil_layers_stag = 4 ;
+variables:
+	float XLAT(south_north, west_east) ;
+		XLAT:long_name = "latitude" ;
+		XLAT:units = "degree_north" ;
+		XLAT:standard_name = "latitude" ;
+	float XLONG(south_north, west_east) ;
+		XLONG:long_name = "longitude" ;
+		XLONG:units = "degree_east" ;
+		XLONG:standard_name = "longitude" ;
+	float SW(soil_layers_stag, south_north, west_east) ;
+		SW:MemoryOrder = "ZXY" ;
+		SW:description = "soil water storage" ;
+		SW:units = "cm" ;
+		SW:stagger = "Z" ;
+	float SWA(soil_layers_stag, south_north, west_east) ;
+		SWA:MemoryOrder = "ZXY" ;
+		SWA:description = "soil water storage anomaly" ;
+		SWA:units = "cm" ;
+		SWA:stagger = "Z" ;
+	float SWE(south_north, west_east) ;
+		SWE:MemoryOrder = "XY" ;
+		SWE:description = "snow water equivalent" ;
+		SWE:units = "cm" ;
+		SWE:stagger = "-" ;
+	float SWEA(south_north, west_east) ;
+		SWEA:MemoryOrder = "XY" ;
+		SWEA:description = "snow water equivalent anomaly" ;
+		SWEA:units = "cm" ;
+		SWEA:stagger = "-" ;
+	float PW(south_north, west_east) ;
+		PW:MemoryOrder = "ZXY" ;
+		PW:description = "plant water storage, variations" ;
+		PW:units = "cm" ;
+		PW:stagger = "-" ;	
+	float PWA(south_north, west_east) ;
+		PWA:MemoryOrder = "ZXY" ;
+		PWA:description = "plant water storage anomaly" ;
+		PWA:units = "cm" ;
+		PWA:stagger = "-" ;
+	float CW(south_north, west_east) ;
+		CW:MemoryOrder = "XY" ;
+		CW:description = "canopy water, variations" ;
+		CW:units = "cm" ;
+		CW:stagger = "-" ;	
+	float CWA(south_north, west_east) ;
+		CWA:MemoryOrder = "XY" ;
+		CWA:description = "canopy water anomaly" ;
+		CWA:units = "cm" ;
+		CWA:stagger = "-" ;
+	float AW(south_north, west_east) ;
+		AW:MemoryOrder = "ZXY" ;
+		AW:description = "aquifer water storage, variations" ;
+		AW:units = "cm" ;
+		AW:stagger = "-" ;
+	float AWA(south_north, west_east) ;
+		AWA:MemoryOrder = "ZXY" ;
+		AWA:description = "aquifer water storage anomaly" ;
+		AWA:units = "cm" ;
+		AWA:stagger = "-" ;
+	float TWS_SIM(south_north, west_east) ;
+		TWS_SIM:MemoryOrder = "XY" ;
+		TWS_SIM:description = "simulated terrestrial water storage, variations" ;
+		TWS_SIM:units = "cm" ;
+		TWS_SIM:stagger = "-" ;
+    float TWSA_SIM(south_north, west_east) ;
+		TWSA_SIM:MemoryOrder = "XY" ;
+		TWSA_SIM:description = "simulated terrestrial water storage anomaly " ;
+		TWSA_SIM:units = "cm" ;
+		TWSA_SIM:stagger = "-" ;
+
+data:
+}
